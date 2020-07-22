@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.ui-app.app-name }}
+spec:
+  replicas: {{ .Values.ui-app.replicas }}
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.ui-app.app-name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.ui-app.app-name }}
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: 
+        ports:
+        - containerPort: {{ .Values.ui-app.container-port }}

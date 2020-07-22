@@ -1,0 +1,8 @@
+ui-app:
+  app-name: guestbook-ui
+  replicas: 1
+  container-port: 80
+svc-app:
+  app-name: guestbook-ui
+  container-port: 80
+  target-port: 80
